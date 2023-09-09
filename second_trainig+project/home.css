@@ -1,20 +1,41 @@
 body{
+    font: 15px/1.5 Arial, Helvetica, sans-serif;
     margin: 0;
     display: flex;
     flex-direction: column;
 }
 
-
 a{
     margin-right: 1rem;
 }
 
-h1{
+h1 span{
+    color: #e8491d;
+}
+
+a:active{
+    color: #e8491d;
+}
+
+h1, h2, p{
     text-align: center;
 }
 
-p{
-    text-align: center;
+#second h1{
+    line-height: 1.5;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+ul{
+    display: flex;
+    list-style-type: none;
+}
+
+ul li a{
+    color: white;
+    text-transform: uppercase;
+    text-decoration: none;
 }
 
 #first{
@@ -23,27 +44,85 @@ p{
     align-items: center;
     padding-right: 10%;
     padding-left: 10%;
-    background-color: yellow;
+    background-color: #35424a;
+    color: white;
+    border-bottom: 3px solid #e8491d;
 }
 
 #second{
+    color: white;
     padding: 10%;
-    background-color: orange;
+    background-image: url("../image/laptop.jpg");
+    background-size: cover;
+
 }   
 
 #third{
+    color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem 10% 1rem 10%;
-    background-color: red;
+    background-color: #35424a;
+}
+
+button{
+    color: white;
+    outline: none;
+    border: none;
+    padding: 4px 11px 4px 11px;
+    background-color: #e8491d;
 }
 
 #fourth{
+    padding: 1rem 10% 1rem 10%;
     display: flex;
-    background-color: blue;
+    gap: 3rem;
+}
+
+#fourth div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input{
+    padding: 3px 10px 3px 10px;
 }
 
 #fivth{
-    background-color: brown;
+    color: white;
+    text-align: center;
+    padding: 1rem 0 1rem 0;
+    background-color: #e8491d;
+}
+
+@media screen and (max-width:670px) {
+    #first{
+        flex-direction: column;
+    }
+
+    #third{
+        flex-direction: column;
+    }
+
+    form{
+        width: 100%;
+        display: flex;
+        gap: 0.4rem;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    input{
+        width: 80%;
+    }
+
+    button{
+        width: 84.8%;
+    }
+
+    #fourth{
+        flex-direction: column;
+    }
 }
