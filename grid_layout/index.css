@@ -1,0 +1,31 @@
+.size{
+    height: 200px;
+    width: 200px;
+}
+
+#one{
+    background-color: red;
+}
+
+#two{
+    background-color: green;
+}
+
+#three{
+    background-color: yellow;
+}
+
+#four{
+    background-color: blue;
+}
+
+#five{
+    background-color: orange;
+}
+
+#layout{
+    display: grid;
+    grid-template-columns: 200px 500px 200px;
+    grid-template-rows: 100px 400px 100px;
+}
+

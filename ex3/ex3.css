@@ -1,0 +1,9 @@
+blockquote{
+    float: right;
+    width: 250px;
+    position: relative;
+    bottom: 20px;
+    border-top-color: grey;
+    border-width: 2px 0 0 0;
+    border-style: solid;
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>complete form</title>
+</head>
+
+<body>
+    <form action="">
+        <fieldset>
+            <legend>your detail</legend>
+            <label for="userNameId"> user name: </label>
+            <input type="text" id="userNameId" name="useName" required="required" maxlength="15" minlength="5">
+            <br />
+            <label for="userEmailId"> email: </label>
+            <input type="email" id="userEmailId" name="useName" required="required">
+        </fieldset>
+
+        <fieldset>
+            <legend>your review</legend>
+            <p> how do you hear about us? <select name="company" size="1">
+                    <option value="google">google</option>
+                    <option value="amazon">amazon</option>
+                    <option value="AAiT">AAiT</option>
+                    <option value="google">google</option>
+                    <option value="amazon">amazon</option>
+                    <option value="AAiT">AAiT</option>
+                </select></p>
+            <p>Would you visite again? </p>
+            <input type="radio" name="yesorno" value="yes" id="yesId" checked="checked">
+            <label for="yesId">Yes</label>
+            <input type="radio" name="yesorno" value="No" id="NoId">
+            <label for="NoId">No</label>
+            <input type="radio" name="yesorno" value="_" id="_Id">
+            <label for="_Id">I do not know</label>
+            <br />
+            <label for="textareaId">comment:</label>
+            <br />
+            <textarea name = "textarea" id = "textareaId" cols = "40" rows = "4"></textarea>
+            <br />
+            <input type="checkbox" required = "required" checked = "checked" id = "checkboxId">
+            <label for="checkboxId">sign me p for email updates</label>
+            <br />
+            <input type="submit">
+        </fieldset>
+    </form>
+</body>
+
+</html>

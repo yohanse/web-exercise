@@ -1,0 +1,38 @@
+h1{
+    color: grey;
+    font-size: 30px;
+    text-align: center;
+}
+
+li{
+    display: inline-block;
+    text-decoration: underline;
+}
+
+ul{
+    background-color: grey;
+    padding: 20px;
+    margin: 20px;
+    text-align: center;
+}
+
+div{
+    background-color: grey;
+    padding: 20px;
+    margin: 20px;
+    text-align: center;
+}
+
+td{
+    width: 400px;
+    background-color: grey;
+    padding: 20px;
+    text-align: center;
+}
+
+footer{
+    background-color: grey;
+    padding: 20px;
+    margin: 20px;
+    text-align: center;
+}

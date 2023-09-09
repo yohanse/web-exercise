@@ -1,0 +1,14 @@
+h1{
+    background-color: rgba(32, 50, 200, 0.7);
+}
+
+p{
+    background-color: grey;
+    width: 200px;
+    float: left;
+    margin-right: 10px;
+}
+
+.clear{
+    clear: left;
+}

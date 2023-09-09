@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+body{
+    margin: 0;
+    height: 100vh;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+}
+a{
+    color: white;
+    text-decoration: none;
+}
+label{
+    align-self: flex-start;
+    display: block;
+}
+
+hr{
+    display: inline-block;
+    border-color: rgb(126, 124, 124);
+    width: 38%;
+}
+
+span{
+    margin: 0.5rem
+}
+
+#wrapper{
+    height: 100%;
+    display: flex;
+}
+
+#left{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #181818;
+    flex: 4;
+}
+
+#second{
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+}
+
+#second div{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    
+}
+
+input{
+    background-color: rgba(0, 0, 0, 0);
+    outline: none;
+    border: 1px solid rgb(126, 124, 124);
+    padding: 5px 0px 5px 0px;
+    width: 100%;
+}
+
+
+#second button{
+    border: none;
+    background: rgb(197, 129, 4);
+    width: 100%;
+}
+
+#third{
+    width: 100%;
+    display: flex;
+    gap: 0.5rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#third button{
+    outline: none;
+    color: white;
+    background-color: rgba(0, 0, 0, 0);
+    border: 1px solid rgb(126, 124, 124);
+    border-top-width: 2px;
+    width: 40%;
+}
+
+#third #horizontal-line{
+    display: flex;
+    align-items: center;
+    width: 40%;
+}
+
+#fourth{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+#fourth div a{
+    color: rgb(197, 129, 4);
+}
+
+button{
+    padding: 7px 0px 7px 0;
+}
+
+#right{
+    background-color: yellow;
+    background: url("../image/fire.jpg") no-repeat center center / cover;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 6;
+}
+
+#right a{
+    padding: 8px 40px 8px 40px;
+    border: 1px solid rgb(126, 124, 124);
+}
+
+@media (max-width: 1200px) {
+    #right{
+        flex: 1
+    }
+
+    #left{
+        flex: 1;
+    }
+}
+
+@media (max-width: 600px) {
+    #wrapper{
+        flex-direction: column;
+    }   
+}
