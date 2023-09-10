@@ -1,0 +1,15 @@
+{
+  "name": "first-backend",
+  "version": "1.0.0",
+  "description": "I am learning package",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "yohanse mehabaw",
+  "license": "ISC",
+  "dependencies": {
+    "superheroes": "^3.0.0"
+  }
+}
