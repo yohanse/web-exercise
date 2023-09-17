@@ -1,6 +1,6 @@
 import express from "express";
 import mongoose from "mongoose";
-import encrypt from "mongoose-encryption";
+import bcrypt from "bcrypt";
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -8,6 +8,7 @@ dotenv.config();
 
 const app = express();
 const port = 3000;
+const saltRounds = 10;
 
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
@@ -27,10 +28,6 @@ const userSchema = new mongoose.Schema({
     password: String,
 });
 
-
-
-userSchema.plugin(encrypt, { secret: SECRET, encryptedFields: ["password"] });
-
 const User = new mongoose.model("user", userSchema);
 
 app.get("/", (req, res) => {
@@ -49,12 +46,13 @@ app.post("/register", async (req, res) => {
     try {
         const user = new User({
             email: req.body["username"],
-            password: req.body["password"]
+            password: bcrypt.hashSync(req.body["password"], saltRounds),
         });
         await user.save();
         res.render("secrets.ejs");
     }
-    catch {
+    catch (err) {
+        console.log(err);
         res.redirect("/register")
     }
 });
@@ -63,18 +61,15 @@ app.post("/login", async (req, res) => {
     try {
         const email = req.body["username"];
         const password = req.body["password"];
+        const users = await User.find({ email: email });
 
-        const users = await User.find({
-            email: email,
-        });
-
-        for(var i = 0; i < users.length; i++){
-            if(users[i].password === password){
-                return res.render("secrets.ejs")
+        for (var i = 0; i < users.length; i++) {
+            console.log(await bcrypt.compare(password, users[i].password));
+            if (await bcrypt.compare(password, users[i].password)) {
+                return res.render("secrets.ejs");
             }
         }
-        res.redirect("/login");
-        
+        return res.redirect("/login")
     }
     catch (err) {
         console.log(err);
