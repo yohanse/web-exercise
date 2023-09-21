@@ -1,8 +1,9 @@
-import Game from "./components/GameEx";
+import Form from "./components/Form";
+
 
 function App() {
   return (
-    <Game></Game>
+    <Form/>
   );
 }
 export default App;
