@@ -1,3 +1,66 @@
-p{
-    display: inline;
+#wrapper{
+    display: flex;
+    flex-direction: column;
+}
+
+form div{
+    margin-bottom: 20px;
+}
+
+label{
+    display: block;
+    margin-bottom: 5px;
+}
+
+input{
+    width: 60%;
+    border: 1px solid grey;
+    height: 25px;
+    border-radius: 5px;
+}
+
+select{
+    width: 61%;
+    border: 1px solid grey;
+    height: 30px;
+    border-radius: 5px;
+}
+
+option{
+    background-color: rgba(74, 44, 243, 0.3);
+    color: rgb(43, 39, 39, 1);
+}
+
+form button{
+    padding: 2px;
+    font-size: 1.4em;
+    width: 18%;
+    border: 1px solid grey;
+    border-radius: 5px;
+    background-color: rgb(82, 82, 219, 0.6);
+    color: white;
+}
+
+table{
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+td{
+    border: 1px solid grey;
+    width: 100px;
+    height: 40px;
+    text-align: center;
+}
+
+td button{
+    border: 1px red solid;
+    padding: 10px;
+    color: red;
+    background-color: white;
+}
+
+td button:hover{
+    background-color: red;
+    color: white
 }

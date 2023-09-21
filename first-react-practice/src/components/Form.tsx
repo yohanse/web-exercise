@@ -1,6 +1,6 @@
 function Form() {
   return (
-    <>
+    <form id="wrapper">
       <div>
         <label htmlFor="name">Name</label>
         <input type="text" id="name" />
@@ -10,7 +10,7 @@ function Form() {
         <input type="number" id="age" />
       </div>
       <button type="submit">submit</button>
-    </>
+    </form>
   );
 }
 
