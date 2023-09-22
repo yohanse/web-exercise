@@ -1,33 +1,52 @@
-import ExpenseTracker from "./components/ExpenseTracker/ExpenseTracker";
-import CreateTable from "./components/CreateTable/CreateTable";
 import { useState } from "react";
-import Material from "./components/matrial";
-
-
+import ExpenseList from "./expense_tracker/component/ExpenseList";
+import ExpenseFilter from "./expense_tracker/component/ExpenseFilter";
+import ExpenseForm from "./expense_tracker/component/ExpenseForm";
+import Expense from "./expense_tracker/Expense";
 
 function App() {
-  const [data, setData] = useState<Material[]>([
+  const [catagory, setCatagory] = useState("allCatagories");
+
+  const [expenses, setExspenses] = useState([
     {
-      description: "game",
-      amount: 500,
-      catagory: "IDK",
+      id: 0,
+      description: "aaa",
+      catagory: "utillitie",
+      amount: 200,
     },
+
     {
-      description: "game",
-      amount: 500,
-      catagory: "IDK",
+      id: 1,
+      description: "aaa",
+      catagory: "utillitie",
+      amount: 200,
+    },
+
+    {
+      id: 2,
+      description: "aaa",
+      catagory: "utillitie",
+      amount: 200,
     },
   ]);
-  const addMaterial = (material: Material) => setData([...data, material]);
-  const removeMaterial = (material: Material) => {
-    console.log(material);
-    setData(data.filter(x => x !== material))};
+
+  const addExpense = (expense: Expense) => setExspenses([...expenses, expense]);
+
+  const deleteExpense = (id: number) =>
+    setExspenses(expenses.filter((expense) => expense.id !== id));
+
+  const filterExpenses = (catagory: string) => setCatagory(catagory);
+
   return (
     <>
-      <ExpenseTracker onAdd={addMaterial}/>
-      <CreateTable
-        onRemove={removeMaterial}
-        data={data}
+      <ExpenseForm onAddExpense={addExpense} finalLength={expenses.length}/>
+      <ExpenseFilter onSelectCatagory={filterExpenses}/>
+      <ExpenseList
+        expenses={expenses.filter(
+          (expense) =>
+            catagory === "allCatagories" || catagory === expense.catagory
+        )}
+        onDelete={deleteExpense}
       />
     </>
   );

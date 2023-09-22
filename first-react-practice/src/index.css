@@ -4,6 +4,8 @@
 }
 
 form div{
+    display: flex;
+    flex-direction: column;
     margin-bottom: 20px;
 }
 
@@ -39,6 +41,7 @@ form button{
     border-radius: 5px;
     background-color: rgb(82, 82, 219, 0.6);
     color: white;
+    margin-bottom: 40px;
 }
 
 table{
@@ -46,7 +49,7 @@ table{
     border-collapse: collapse;
 }
 
-td{
+td, th{
     border: 1px solid grey;
     width: 100px;
     height: 40px;
@@ -61,6 +64,14 @@ td button{
 }
 
 td button:hover{
-    background-color: red;
+    background-color: rgb(206, 74, 74);
     color: white
+}
+
+p{
+    color: red;
+}
+
+#filter{
+    margin-bottom: 20px;
 }
