@@ -1,35 +1,49 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import styled from "styled-components";
+import SongListComponent from "./component/SongListComponent";
+import { SongDetail } from "./component/SongDetail";
+import { useState } from "react";
+import { Song } from "./hooks/useTracks";
+import { SongCreateForm } from "./component/songCreateForm";
 
-function App() {
-  const [count, setCount] = useState(0)
+const Flex = styled.div`
+  display: flex;
+  gap: 20px;
+  height: 100vh;
+  @media screen and (max-width:538px) {
+    flex-direction: column-reverse;
+  }
+`;
 
+const App = () => {
+  const [songDetail, setSongDetail] = useState<Song>({
+    _id: "6519e22f29dc5ee6485ff638",
+    name: "ETA",
+    duration_ms: 151373,
+    image_url:
+      "https://i.scdn.co/image/ab67616d0000b2730744690248ef3ba7b776ea7b",
+    release_date: "2023-07-21",
+    artist: {
+      name: "NewJeans",
+      popularity: 84,
+      image_url:
+        "https://i.scdn.co/image/ab6761610000e5eb5da361915b1fa48895d4f23f",
+      followers: 5446545,
+      _id: "6519e22f29dc5ee6485ff639",
+    },
+  });
+
+  const changeDetail = (song: Song) => {
+    setSongDetail(song);
+  };
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <Flex>
+      <SongListComponent singleSong = {changeDetail}></SongListComponent>
+      {/* <SongDetail
+        song={songDetail}
+      ></SongDetail> */}
+      <SongCreateForm/>
+    </Flex>
+  );
+};
 
-export default App
+export default App;
