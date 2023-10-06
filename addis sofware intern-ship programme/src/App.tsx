@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import SongListComponent from "./components/SongListComponent";
+import { SongDetail } from "./components/SongDetail";
 
 const Flex = styled.div`
   display: flex;
@@ -12,7 +13,10 @@ const Flex = styled.div`
 
 const App = () => {
   return (
-      <SongListComponent></SongListComponent>
+      <Flex>
+        <SongListComponent></SongListComponent>
+        <SongDetail></SongDetail>
+      </Flex>
   );
 };
 

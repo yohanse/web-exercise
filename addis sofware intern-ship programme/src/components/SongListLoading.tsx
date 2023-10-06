@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { SongCardSkeleton } from "./SongCardSkeleton";
 
 const SongGrid = styled.div`
+  flex-grow: 1;
   overflow-y: scroll;
   display: grid;
   gap: 15px;
@@ -25,7 +26,7 @@ const SongGrid = styled.div`
 `;
 
 export const SongListLoading = () => {
-  const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
   return (
     <SongGrid>
       {skeletons.map((skeleton) => (

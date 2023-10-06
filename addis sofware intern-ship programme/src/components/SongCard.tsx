@@ -1,9 +1,13 @@
 import { MdDeleteOutline } from "react-icons/md";
 import styled from "styled-components";
 import { Song } from "../store/features/songs";
+import { useAppDispatch } from "../store/store";
+import { showDetailSong } from "../store/features/songs";
+import { deleteSong } from "../store/features/songs";
 
 interface Props {
   song: Song;
+  index: number;
 }
 
 const Flex = styled.button`
@@ -57,16 +61,19 @@ const Button = styled.button`
   border: none;
 `;
 
-export const SongCard = ({ song }: Props) => {
+export const SongCard = ({ song, index }: Props) => {
+  const dispatch = useAppDispatch();
   return (
-    <Flex>
+    <Flex onClick={() => dispatch(showDetailSong({id: index}))}>
       <Image src={song.image_url} alt="Logo" />
       <HFlex>
         <VFlex>
           <SongName>{song.name}</SongName>
           <SongArtist>{song.artist.name}</SongArtist>
         </VFlex>
-        <Button>
+        <Button onClick={(event) => {
+          event.stopPropagation();
+          dispatch(deleteSong(song._id))}}>
           <MdDeleteOutline color="#a4a4a4" size="25" />
         </Button>
       </HFlex>

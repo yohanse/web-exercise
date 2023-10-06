@@ -33,8 +33,8 @@ interface Props {
 export const SongListSuccess = ({ songs }: Props) => {
   return (
     <SongGrid>
-      {songs.map((song) => (
-        <SongCard song={song} key={song._id}></SongCard>
+      {songs.map((song, index) => (
+        <SongCard song={song} key={song._id} index = {index}></SongCard>
       ))}
       <SongAdd></SongAdd>
     </SongGrid>
