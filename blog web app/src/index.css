@@ -1,0 +1,102 @@
+body {
+  padding: 0;
+  margin: 0;
+  background-color: rgb(17, 3, 17);
+  height: 100vh;
+  width: 100vw;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#wrapper {
+  border-radius: 15px;
+  background-color: #dddddd;
+  height: 80%;
+  width: 60%;
+  overflow: hidden;
+}
+
+#image-wrapper {
+  margin-bottom: 20px;
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+#auth-wrapper {
+  height: 100%;
+  width: 100%;
+}
+
+#signup,
+#login,
+#image-signup,
+#image-login {
+  width: 50%;
+  height: 100%;
+}
+
+#image-login {
+  background-color: #dddddd;
+  animation: right-left 8s forwards alternate infinite;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#image-signup {
+  background-color: #dddddd;
+  flex-shrink: 0;
+  animation: right-left 8s forwards alternate infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#login {
+  background-color: blue;
+  animation: top-down 8s forwards alternate infinite;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#signup {
+  animation: down-top 8s forwards alternate infinite;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes left-right {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes top-down {
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes right-left {
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes down-top {
+  100% {
+    transform: translateY(-100%);
+  }
+}
