@@ -1,14 +1,21 @@
 import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
-import dotenv from  "dotenv";
+import dotenv from "dotenv";
+import {createServer} from "http";
+import { Server } from "socket.io";
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+import playSound from "play-sound";
 
-dotenv.config()
+const play = playSound();
+
+dotenv.config();
 try {
   await mongoose.connect(
     `mongodb+srv://mehabawyohanse793:${process.env.MONGOOSE_KEY}@firstmonogo.m8kzbgd.mongodb.net/`
   );
-  console.log("mongoose works fine")
+  console.log("mongoose works fine");
 } catch (err) {
   console.log(err);
 }
@@ -31,11 +38,44 @@ const trackSchema = mongoose.Schema({
 });
 
 const Track = mongoose.model("tracks", trackSchema);
-
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 const app = express();
 const port = 3000;
 app.use(cors());
 app.use(express.json());
+app.use(express.static(__dirname + "/music"));
+
+const server = createServer(app);
+
+
+
+
+
+const io = new Server(server, {
+  cors: {
+    origin: "http://localhost:5173",
+    methods: ["GET", "POST"],
+  },
+});
+
+
+
+
+io.on("connection", (socket) => {
+  console.log(`user: ${socket.id}`);
+
+  socket.on("play", (data) => {
+    if(data.play){
+      console.log("playing")
+      play.play(__dirname + "/music/12.mp3");
+    }
+    else{
+      console.log("music paused");
+    }
+    console.log("input data: " + data.play);
+  });
+});
 
 app.get("/", async (req, res) => {
   const tracks = await Track.find();
@@ -80,6 +120,10 @@ app.delete("/trackDelete/:id", async (req, res) => {
   }
 });
 
-app.listen(port, () => {
+// app.listen(port, () => {
+//   console.log(`the server start listening at port ${port}`);
+// });
+
+server.listen(port, () => {
   console.log(`the server start listening at port ${port}`);
-});
+})
