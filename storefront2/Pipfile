@@ -5,11 +5,13 @@ name = "pypi"
 
 [packages]
 django = "*"
-mysql-connector-python = "*"
-pymysql = "*"
+django-debug-toolbar = "*"
 mysqlclient = "*"
+djangorestframework = "*"
+drf-nested-routers = "*"
+django-filter = "*"
 
 [dev-packages]
 
 [requires]
-python_version = "3.12"
+python_version = "3.11"
