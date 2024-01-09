@@ -5,8 +5,8 @@ from rest_framework.decorators import action
 from rest_framework.viewsets import ModelViewSet, GenericViewSet
 from rest_framework.filters import SearchFilter, OrderingFilter
 from rest_framework.mixins import CreateModelMixin
-from .models import Product, Collection, OrderItem, Review, Cart, CartItem, Customer
-from .serializer import AddCartItemSerializer, ProductSerializer, CollectionSerializer, ReviewSerializer, CartSerializer, CartItemSerializer, UpdateCartItemSerializer, CustomerSerializer
+from .models import Product, Collection, OrderItem, Review, Cart, CartItem, Customer, Order, OrderItem
+from .serializer import AddCartItemSerializer, ProductSerializer, CollectionSerializer, ReviewSerializer, CartSerializer, CartItemSerializer, UpdateCartItemSerializer, CustomerSerializer, OrderSerializer,OrderItemSerializer
 from .filters import ProductFilter
 from .pagination import DefaultPagination
 
@@ -85,4 +85,9 @@ class CustomerViewSet(ModelViewSet):
             customer.is_valid(raise_exception=True)
             customer.save()
             return Response(customer.data)
+        
+
+class OrderViewSet(ModelViewSet):
+    queryset = Order.objects.all()
+    serializer_class = OrderSerializer
 
